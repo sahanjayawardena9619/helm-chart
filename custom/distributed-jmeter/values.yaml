@@ -32,16 +32,16 @@ slave:
   pullPolicy: IfNotPresent
   resources:
     requests:
-      memory: 2048Mi
+      memory: 1024i
       cpu: 500m
     limits:
-      memory: 2560Mi
+      memory: 1024Mi
       cpu: 1000m
   heapMemory:
     xms1:
-      memory: 1536M
+      memory: 512M
     xms2:
-      memory: 1536M
+      memory: 512M
 
 
 

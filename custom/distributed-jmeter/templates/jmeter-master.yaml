@@ -44,7 +44,7 @@ spec:
   volumes:
     - name: m2-volume
       persistentVolumeClaim:
-        claimName: jmeter-claim
+        claimName: m2-volume-pv-claim
     - name: helm-volume
       persistentVolumeClaim:
-        claimName: helm-claim
+        claimName: helm-volume-pv-claim
