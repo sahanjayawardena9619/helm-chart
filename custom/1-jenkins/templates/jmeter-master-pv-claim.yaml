@@ -15,7 +15,7 @@ spec:
 
 ---
 
-# Persistent Volume Claim for Jenkins
+# Persistent Volume Claim for Helm
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:

@@ -1,5 +1,3 @@
-#JMeter Master Slave Configurations
-
 #JMeter Master Configuration
 master:
   jmeter:
@@ -8,10 +6,10 @@ master:
     pullPolicy: IfNotPresent
     res:
       req:
-        mem: "512Mi"
+        mem: "1024Mi"
         cpu: "250m"
       lim:
-        mem: "512Mi"
+        mem: "1024Mi"
         cpu: "500m"
 
   kube:
@@ -25,6 +23,8 @@ master:
       lim:
         mem: "512Mi"
         cpu: "200m"
+
+#JMeter Master Configuration
 slave:
   replicaCount: 1
   image: pedrocesarti/jmeter-docker
@@ -32,11 +32,11 @@ slave:
   pullPolicy: IfNotPresent
   resources:
     requests:
-      memory: 1024i
-      cpu: 500m
+      memory: 1024Mi
+      cpu: 100m
     limits:
       memory: 1024Mi
-      cpu: 1000m
+      cpu: 200m
   heapMemory:
     xms1:
       memory: 512M
