@@ -1,4 +1,7 @@
 #JMeter Master Configuration
+dep:
+  name: distributed-jmeter
+
 master:
   jmeter:
     image: maven
@@ -7,10 +10,10 @@ master:
     res:
       req:
         mem: "1024Mi"
-        cpu: "250m"
+        cpu: "100m"
       lim:
         mem: "1024Mi"
-        cpu: "500m"
+        cpu: "200m"
 
   kube:
     image: dtzar/helm-kubectl
@@ -18,26 +21,26 @@ master:
     pullPolicy: IfNotPresent
     res:
       req:
-        mem: "256M"
+        mem: "256Mi"
         cpu: "100m"
       lim:
         mem: "512Mi"
         cpu: "200m"
 
-#JMeter Master Configuration
+#JMeter Slave Configuration
 slave:
   replicaCount: 1
   image: pedrocesarti/jmeter-docker
   tag: 3.3
   pullPolicy: IfNotPresent
-  resources:
-    requests:
-      memory: 1024Mi
-      cpu: 100m
-    limits:
-      memory: 1024Mi
-      cpu: 200m
-  heapMemory:
+  res:
+    req:
+      mem: "1024Mi"
+      cpu: "100m"
+    lim:
+      mem: "1024Mi"
+      cpu: "100m"
+  heap:
     xms1:
       memory: 512M
     xms2:

@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: "{{ .Values.dep.name }}-service"
+  namespace: perf-platform
+spec:
+  clusterIP: None
+  ports:
+    - protocol: TCP
+      port: 1099
+      targetPort: 1099
+      name: master
+
+    - protocol: TCP
+      port: 50000
+      targetPort: 50000
+      name: slave
+  selector:
+    app.kubernates.io/instance: "{{ .Values.dep.name }}-slave"
