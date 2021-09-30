@@ -1,6 +1,0 @@
-# Jenkins Namespace YAML File
----
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: perf-platform
