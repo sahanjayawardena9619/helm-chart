@@ -46,5 +46,5 @@ spec:
         volumeMounts:
         - name: jenkins-vol # Or you can replace with any name
           mountPath: /var/jenkins_home # Must match the mount path in the args line
-      restartPolicy: Always
+      restartPolicy: Never
       
