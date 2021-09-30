@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "{{ .Values.dep.name }}-slave"
+  namespace: perf-platform
+  labels:
+    jmeter-label: jmeter-slave
+    jenkins-label: jenkins-slave
+    app.kubernates.io/instance: "{{ .Values.dep.name }}-slave"
+spec:
+  replicas: {{ .Values.slave.replicaCount }}
+  selector:
+    matchLabels:
+      app.kubernates.io/instance: "{{ .Values.dep.name }}-slave"
+  template:
+    metadata:
+      labels:
+        app.kubernates.io/instance: "{{ .Values.dep.name }}-slave"
+    spec:
+      containers:
+      - name: distributed-jmeter-slave
+        image: "{{ .Values.slave.image }}:{{ .Values.slave.tag }}"
+        imagePullPolicy: {{ .Values.slave.pullPolicy }}
+        args: ["server"]
+        env:
+        - name: HEAP
+          value: "-Xms{{ .Values.slave.heap.xms1.memory }} -Xmx{{ .Values.slave.heap.xms2.memory }}"
+        ports:
+          - containerPort: 50000
+          - containerPort: 1099
+        resources:
+          requests:
+            memory: "{{ .Values.slave.res.req.mem }}"
+            cpu: "{{ .Values.slave.res.req.cpu }}"
+          limits:
+            memory: "{{ .Values.slave.res.lim.mem }}"
+            cpu: "{{ .Values.slave.res.lim.cpu }}"
