@@ -3,15 +3,18 @@ kind: Deployment
 metadata:
   name: {{ .Values.dep.name }}-master
   namespace: perf-platform
+  labels:
+    app.kubernetes.io/name: {{ .Values.dep.name }}
 
 spec:
   selector:
     matchLabels:
       app.kubernetes.io/instance: {{ .Values.dep.name }}-master
-
+      
   template:
     metadata:
       labels:
+        app.kubernetes.io/name: {{ .Values.dep.name }}
         app.kubernetes.io/instance: {{ .Values.dep.name }}-master
         
     spec:

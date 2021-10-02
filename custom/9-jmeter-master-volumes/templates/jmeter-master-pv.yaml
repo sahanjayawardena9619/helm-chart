@@ -6,8 +6,6 @@ metadata:
 provisioner: kubernetes.io/azure-file
 mountOptions:
   - nolock
-parameters:
-  skuName: Standard_LRS
 reclaimPolicy: Retain
 
 ---
@@ -20,6 +18,4 @@ metadata:
 provisioner: kubernetes.io/azure-file
 mountOptions:
   - nolock
-parameters:
-  skuName: Standard_LRS
 reclaimPolicy: Retain
