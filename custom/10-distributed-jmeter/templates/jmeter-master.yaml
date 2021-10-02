@@ -1,20 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: "{{ .Values.dep.name }}-master"
+  name: {{ .Values.dep.name }}-master
   namespace: perf-platform
-  labels:
-    jmeter-label: jmeter-master
-    jenkins-label: jenkins-slave
-    app.kubernates.io/instance: "{{ .Values.dep.name }}-master"
+
 spec:
   selector:
     matchLabels:
-      app.kubernates.io/instance: "{{ .Values.dep.name }}-master"
+      app.kubernetes.io/instance: {{ .Values.dep.name }}-master
+
   template:
     metadata:
       labels:
-        app.kubernates.io/instance: "{{ .Values.dep.name }}-master"
+        app.kubernetes.io/instance: {{ .Values.dep.name }}-master
+        
     spec:
       containers:
         - name: distributed-jmeter-master
