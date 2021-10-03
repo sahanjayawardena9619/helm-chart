@@ -1,8 +1,6 @@
-
 #JMeter Slave Configuration
 dep:
   name: distributed-jmeter
-
 slave:
   replicaCount: 1
   image: pedrocesarti/jmeter-docker
@@ -20,10 +18,3 @@ slave:
       memory: 512M
     xms2:
       memory: 512M
-
-
-
-
-      
-
-
