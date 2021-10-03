@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.dep.name }}-slave
+  name: {{ .Values.dep.name }}
   namespace: perf-platform
   labels:
     app.kubernetes.io/name: {{ .Values.dep.name }}
@@ -10,13 +10,12 @@ spec:
   replicas: {{ .Values.slave.replicaCount }}
   selector:
     matchLabels:
-      app.kubernetes.io/instance: {{ .Values.dep.name }}-slave
+      app.kubernetes.io/name: {{ .Values.dep.name }}
 
   template:
     metadata:
       labels:
         app.kubernetes.io/name: {{ .Values.dep.name }}
-        app.kubernetes.io/instance: {{ .Values.dep.name }}-slave
 
     spec:
       containers:
