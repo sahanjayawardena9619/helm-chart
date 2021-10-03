@@ -15,7 +15,6 @@ spec:
       labels:
         app: jenkins
     spec:
-      serviceAccountName: jenkins-admin-account
       containers:
       - name: jenkins
         image: jenkins/jenkins:latest-jdk8
