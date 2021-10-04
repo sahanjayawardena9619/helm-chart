@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: jenkins
-        image: jenkins/jenkins:latest-jdk8
+        image: jenkins/jenkins:jdk11
         resources:
             requests:
               cpu: "500m"
