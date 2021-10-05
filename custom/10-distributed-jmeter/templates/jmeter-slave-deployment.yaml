@@ -22,7 +22,7 @@ spec:
       - name: distributed-jmeter-slave
         image: "{{ .Values.slave.image }}:{{ .Values.slave.tag }}"
         imagePullPolicy: {{ .Values.slave.pullPolicy }}
-        args: ["server"]
+
         env:
         - name: HEAP
           value: "-Xms{{ .Values.slave.heap.xms1.memory }} -Xmx{{ .Values.slave.heap.xms2.memory }}"
