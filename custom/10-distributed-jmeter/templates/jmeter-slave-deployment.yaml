@@ -22,13 +22,26 @@ spec:
       - name: distributed-jmeter-slave
         image: "{{ .Values.slave.image }}:{{ .Values.slave.tag }}"
         imagePullPolicy: {{ .Values.slave.pullPolicy }}
-
+        args: ["server"]
+        command:
+        - /bin/sh
+        - -c
+        - |
+          echo "Starting Container";
+          jmeter -v;
+          while true
+            do 
+              sleep 30; 
+            done
+          
         env:
         - name: HEAP
           value: "-Xms{{ .Values.slave.heap.xms1.memory }} -Xmx{{ .Values.slave.heap.xms2.memory }}"
+        
         ports:
           - containerPort: 50000
           - containerPort: 1099
+        
         resources:
           requests:
             memory: "{{ .Values.slave.res.req.mem }}"

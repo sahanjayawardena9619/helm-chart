@@ -3,8 +3,8 @@ dep:
   name: distributed-jmeter
 slave:
   replicaCount: 1
-  image: gsengun/jmeter
-  tag: 5.4.1
+  image: justb4/jmeter
+  tag: 5.3
   pullPolicy: IfNotPresent
   res:
     req:
