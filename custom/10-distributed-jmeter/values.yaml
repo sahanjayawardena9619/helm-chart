@@ -3,8 +3,8 @@ dep:
   name: distributed-jmeter
 slave:
   replicaCount: 1
-  image: justb4/jmeter
-  tag: 5.3
+  image: sjay8691/jmeter-all-plugins-slave
+  tag: 5.4.1_v1.0
   pullPolicy: IfNotPresent
   res:
     req:
@@ -14,7 +14,7 @@ slave:
       mem: "1024Mi"
       cpu: "100m"
   heap:
-    xms1:
+    xms:
       memory: "512m"
-    xms2:
+    xmx:
       memory: "512m"
