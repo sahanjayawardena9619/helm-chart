@@ -4,7 +4,7 @@ dep:
 slave:
   replicaCount: 1
   image: sjay8691/jmeter-all-plugins-slave
-  tag: 5.4.1_jdk11
+  tag: 5.2.1_jdk11_v1
   pullPolicy: IfNotPresent
   res:
     req:
