@@ -5,17 +5,20 @@ metadata:
   namespace: perf-platform
   labels:
     app.kubernetes.io/name: {{ .Values.dep.name }}
+    jmeter-mode: "server"
 
 spec:
   replicas: {{ .Values.slave.replicaCount }}
   selector:
     matchLabels:
       app.kubernetes.io/name: {{ .Values.dep.name }}
+      jmeter-mode: "server"
 
   template:
     metadata:
       labels:
         app.kubernetes.io/name: {{ .Values.dep.name }}
+        jmeter-mode: "server"
 
     spec:
       containers:

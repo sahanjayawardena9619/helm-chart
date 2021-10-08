@@ -2,7 +2,7 @@
 dep:
   name: distributed-jmeter
 slave:
-  replicaCount: 1
+  replicaCount: 2
   image: sjay8691/jmeter-all-plugins-slave
   tag: 5.4.1_jdk11_v2
   pullPolicy: IfNotPresent
