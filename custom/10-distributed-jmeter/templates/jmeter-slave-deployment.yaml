@@ -26,9 +26,9 @@ spec:
         - name: MODE
           value: "slave-mode"            
         - name: XMS_VALUE
-          value: {{ .Values.slave.heap.xms.memory }}
+          value: "{{ .Values.slave.heap.xms.memory }}"
         - name: XMX_VALUE
-          value: {{ .Values.slave.heap.xmx.memory }}
+          value: "{{ .Values.slave.heap.xmx.memory }}"
         args: ["$(MODE)","$(XMS_VALUE)", "$(XMX_VALUE)"]
         ports:
           - containerPort: 50000

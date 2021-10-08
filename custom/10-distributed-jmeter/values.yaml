@@ -15,6 +15,6 @@ slave:
       cpu: "100m"
   heap:
     xms:
-      memory: "512m"
+      memory: "512M"
     xmx:
-      memory: "512m"
+      memory: "512M"
