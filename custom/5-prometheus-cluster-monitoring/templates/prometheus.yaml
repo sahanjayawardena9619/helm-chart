@@ -11,7 +11,7 @@ spec:
     - name: alertmanager-main
       namespace: monitoring
       port: web
-  baseImage: quay.io/prometheus/prometheus
+  image: bitnami/prometheus:2.30.3
   nodeSelector:
     kubernetes.io/os: linux
   podMonitorSelector: {}
@@ -20,8 +20,8 @@ spec:
   scrapeInterval: 30s
   resources:
     requests:
-      cpu: 100m
-      memory: 128Mi
+      cpu: 200m
+      memory: 512Mi
     limits:
       cpu: 500m
       memory: 512Mi
